@@ -51,7 +51,7 @@ function gameOver()
     updateStatusElement(scoreContainerElem,"none")
     updateStatusElement(roundContainerElem,"none")
 
-    const gameOverMessage = `Game Over! Final Score - <span class ='badge'>${score}</span
+    const gameOverMessage = `Game Over! Final Score - <span class ='badge'>${score}/185</span
                              Click 'Play Game' button to play again`
     updateStatusElement(currentGameStatusElem,"block",primaryColor, gameOverMessage)
 
@@ -59,6 +59,7 @@ function gameOver()
 
     gameInProgress = false
     playGameButtonElem.disabled = false
+    playGameButtonElem.classList.remove("hidden");
 }
 function endRound()
 {
@@ -224,6 +225,9 @@ function initializeNewGame(){
     updateStatusElement(roundElem,"block",primaryColor, `Round <span class='badge'>${roundNum}</span>`)
 }
 function startRound(){
+    if(gameInProgress){
+       playGameButtonElem.classList.add("hidden");
+    }
     initializeNewRound()
     collectCards()
     flipCards(true)
@@ -234,6 +238,7 @@ function initializeNewRound()
 {
     roundNum++
     playGameButtonElem.disabled = true
+    playGameButtonElem.classList.add("hidden");
 
     gameInProgress = true
     shufflingInProgress = true
