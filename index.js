@@ -51,7 +51,7 @@ function gameOver()
     updateStatusElement(scoreContainerElem,"none")
     updateStatusElement(roundContainerElem,"none")
 
-    const gameOverMessage = `Game Over! Final Score - <span class ='badge'>${score}/185</span
+    const gameOverMessage = `Game Over! Final Score - <span class ='badge'>${score}/100</span
                              Click 'Play Game' button to play again`
     updateStatusElement(currentGameStatusElem,"block",primaryColor, gameOverMessage)
 
@@ -100,11 +100,11 @@ function calculateScoreToAdd(roundNum)
 {
     if(roundNum == 1)
     {
-        return 100
+        return 25
     }
     else if(roundNum == 2)
     {
-        return 50
+        return 25
     }
     else if(roundNum == 3)
     {
@@ -112,7 +112,7 @@ function calculateScoreToAdd(roundNum)
     }
     else
     {
-        return 10
+        return 25
     }
 }
 
